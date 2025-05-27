@@ -1,0 +1,34 @@
+From fdcb90f69dffaaed542b918e15d8806b81fb0833 Mon Sep 17 00:00:00 2001
+From: Cascade AI <ai@example.com>
+Date: Sun, 25 May 2025 20:28:53 +0100
+Subject: [PATCH] Fix CI/CD workflow to point to correct pom.xml location in
+ demo directory
+
+---
+ .github/workflows/ci-cd.yml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/.github/workflows/ci-cd.yml b/.github/workflows/ci-cd.yml
+index 88884d0..72bede4 100644
+--- a/.github/workflows/ci-cd.yml
++++ b/.github/workflows/ci-cd.yml
+@@ -31,13 +31,13 @@ jobs:
+         cache: maven
+     
+     - name: Build with Maven
+-      run: mvn -B clean package --file pom.xml
++      run: mvn -B clean package --file demo/pom.xml
+     
+     - name: Run tests
+-      run: mvn -B test
++      run: mvn -B test --file demo/pom.xml
+ 
+     - name: Upload build artifact
+       uses: actions/upload-artifact@v4
+       with:
+         name: build-artifact
+-        path: target/*.jar
++        path: demo/target/*.jar
+-- 
+2.49.0.windows.1
+

@@ -1,0 +1,19 @@
+{
+  "name": "mini-project",
+  "version": "1.0.0",
+  "description": "A simple web application deployed with GitHub Actions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "github-actions",
+    "deployment"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
